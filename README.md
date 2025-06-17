@@ -268,8 +268,7 @@ Contributions welcome! Please read our contributing guidelines and submit pull r
 
 ## Support
 
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/pandasschema/issues)
-- 📖 **Documentation**: See `/demos` folder for comprehensive examples
+- 🐛 **Issues**: [GitHub Issues](https://github.com/gzocche/PandasSchemaster/issues)
 - 💡 **Questions**: Use GitHub Discussions
 
 ## Testing

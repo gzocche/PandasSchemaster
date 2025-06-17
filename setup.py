@@ -9,12 +9,12 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 setup(
     name="pandasschemaster",  # Changed to match actual package name
     version="1.0.0",
-    author="Your Name",  # Add your name
-    author_email="your.email@example.com",  # Add your email
+    author="gzocche",  # Add your name
+    author_email="gzocche@outlook.com",  # Add your email
     description="Type-safe DataFrame library with schema validation for pandas",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/PandasSchema",  # Add your GitHub URL
+    url="https://github.com/gzocche/PandasSchemaster",  # Add your GitHub URL
     packages=find_packages(),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
