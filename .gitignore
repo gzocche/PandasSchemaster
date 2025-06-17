@@ -168,3 +168,5 @@ demos/
 *.tmp
 *.temp
 temp_*
+.pypirc
+pyproject.toml
