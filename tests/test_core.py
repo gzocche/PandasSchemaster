@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 
-from pandasschemaster.core import SchemaColumn, SchemaDataFrame, BaseSchema
+from pandasschemaster import SchemaColumn, SchemaDataFrame, BaseSchema
 
 
 class TestSchemaColumn:
