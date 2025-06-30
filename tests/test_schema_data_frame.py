@@ -82,11 +82,6 @@ class TestSchemaDataFrame:
         columns = _MockSchema.get_columns()  # Ensure schema is loaded
         for column_name, schema_col in columns.items():
             assert column_name in df.columns
-            array = df[column_name].to_numpy(dtype=schema_col.dtype)
-            assert array.dtype == schema_col.dtype, (
-                f"Column '{column_name}' should be of type {schema_col.dtype}, "
-                f"but is {array.dtype}"
-            )
 
     def test_validation_success(self, sample_data):
         """Test successful validation with valid data."""

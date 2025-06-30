@@ -1,5 +1,5 @@
 """
-PandasSchema - Type-safe DataFrame library with schema validation
+PandasSchemaster - Type-safe DataFrame library with schema validation
 
 A pandas wrapper that provides schema validation, type safety, and automatic
 data conversion based on predefined schema columns. Supports column access

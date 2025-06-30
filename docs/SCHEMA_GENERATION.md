@@ -1,10 +1,10 @@
 # Schema Generation - Entity Framework Style
 
-This document explains how to use the Entity Framework-like schema generation feature in PandasSchema.
+This document explains how to use the Entity Framework-like schema generation feature in PandasSchemaster.
 
 ## Overview
 
-The `SchemaGenerator` class provides Entity Framework-like functionality for automatically generating schema classes from data files. Similar to how Entity Framework can generate models from a database, this tool generates PandasSchema classes from CSV, Excel, JSON, and other data files.
+The `SchemaGenerator` class provides Entity Framework-like functionality for automatically generating schema classes from data files. Similar to how Entity Framework can generate models from a database, this tool generates PandasSchemaster classes from CSV, Excel, JSON, and other data files.
 
 ## Features
 
@@ -294,7 +294,7 @@ active = df[df[EmployeeSchema.IS_ACTIVE] == True]  # Validated
    ```
    ImportError: No module named 'pandasschemaster'
    ```
-   Solution: Ensure PandasSchema is installed and in Python path
+   Solution: Ensure PandasSchemaster is installed and in Python path
 
 ### Debug Mode
 Enable verbose logging for troubleshooting:

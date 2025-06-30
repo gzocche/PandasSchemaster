@@ -1,5 +1,5 @@
 """
-BaseSchema implementation for PandasSchema library.
+BaseSchema implementation for PandasSchemaster library.
 
 This module contains the abstract base class for defining DataFrame schemas
 with validation capabilities and column introspection.

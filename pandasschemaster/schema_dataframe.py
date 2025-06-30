@@ -1,5 +1,5 @@
 """
-SchemaDataFrame implementation for PandasSchema library.
+SchemaDataFrame implementation for PandasSchemaster library.
 
 This module contains the SchemaDataFrame class which extends pandas DataFrame
 with schema validation, type safety, and support for SchemaColumn access.

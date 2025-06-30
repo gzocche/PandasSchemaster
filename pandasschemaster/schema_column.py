@@ -1,5 +1,5 @@
 """
-SchemaColumn implementation for PandasSchema library.
+SchemaColumn implementation for PandasSchemaster library.
 
 This module contains the SchemaColumn class for type-safe column definitions
 with validation capabilities, transformation functions, and type casting.
