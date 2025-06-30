@@ -173,16 +173,7 @@ python scripts/generate_schema.py api_response.json -c UserSchema -o user_schema
 
 ## 🔧 Advanced Usage
 
-### Custom Configuration
 
-You can modify the script behavior by editing the configuration at the top of `generate_schema.py`:
-
-```python
-# Configuration options
-DEFAULT_SAMPLE_SIZE = 10000
-INFER_NULLABLE = True
-VERBOSE_OUTPUT = False
-```
 
 ### Batch Processing
 
