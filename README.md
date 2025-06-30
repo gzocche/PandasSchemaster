@@ -314,7 +314,6 @@ print(df.schema)                             # Access to schema class
 | [📖 API Reference](docs/API_REFERENCE.md) | Complete API documentation |
 | [🔧 CLI Usage Guide](docs/CLI_USAGE.md) | Command-line tool documentation |
 | [🎯 Examples & Tutorials](docs/EXAMPLES.md) | Real-world examples and patterns |
-| [🏗️ Project Structure](docs/PROJECT_STRUCTURE.md) | Repository organization |
 | [🤝 Contributing](CONTRIBUTING.md) | How to contribute |
 | [📋 Changelog](CHANGELOG.md) | Version history |
 
