@@ -7,11 +7,10 @@ for file reading and type inference.
 """
 
 import argparse
-import os
 import re
-from pathlib import Path
-from typing import Dict, List, Optional, Union, Any
 import logging
+from pathlib import Path
+from typing import Dict, Optional, Any
 
 import pandas as pd
 import numpy as np
@@ -46,6 +45,7 @@ class SchemaGenerator:
         'category': np.object_,
     }
 
+
     def __init__(self, infer_nullable: bool = True, sample_size: Optional[int] = None):
         """
         Initialize the schema generator.
@@ -74,21 +74,21 @@ class SchemaGenerator:
         file_path = Path(file_path)
         extension = file_path.suffix.lower()
 
-        logger.info(f"Reading file: {file_path}")
+        logger.info("Reading file: %s", file_path)
 
         if extension == '.csv':
             return pd.read_csv(file_path, **kwargs)
-        elif extension in ['.xlsx', '.xls']:
+        if extension in ['.xlsx', '.xls']:
             return pd.read_excel(file_path, **kwargs)
-        elif extension == '.json':
+        if extension == '.json':
             return pd.read_json(file_path, **kwargs)
-        elif extension == '.parquet':
+        if extension == '.parquet':
             return pd.read_parquet(file_path, **kwargs)
-        elif extension in ['.tsv', '.txt']:
+        if extension in ['.tsv', '.txt']:
             kwargs.setdefault('sep', '\t')
             return pd.read_csv(file_path, **kwargs)
-        else:
-            raise ValueError(f"Unsupported file format: {extension}")
+
+        raise ValueError("Unsupported file format: %s", extension)
 
     def analyze_column(self, series: pd.Series, column_name: str) -> Dict[str, Any]:
         """
@@ -175,12 +175,12 @@ class SchemaGenerator:
         Returns:
             Dictionary mapping column names to SchemaColumn objects
         """
-        logger.info(f"Analyzing DataFrame with {len(df.columns)} columns and {len(df)} rows")
+        logger.info("Analyzing DataFrame with %d columns and %d rows", len(df.columns), len(df))
 
         # Sample data if requested
         if self.sample_size and len(df) > self.sample_size:
             df_sample = df.sample(n=self.sample_size, random_state=42)
-            logger.info(f"Using sample of {self.sample_size} rows for analysis")
+            logger.info("Using sample of %d rows for analysis", self.sample_size)
         else:
             df_sample = df
 
@@ -356,7 +356,7 @@ class SchemaGenerator:
         if output_path:
             with open(output_path, 'w', encoding='utf-8') as f:
                 f.write(code)
-            logger.info(f"Schema class saved to: %s", output_path)
+            logger.info("Schema class saved to: %s", output_path)
 
         return code
 
@@ -418,10 +418,10 @@ def main():
         if not args.output:
             print(code)
 
-        print(f"✅ Schema generation completed successfully!")
+        print("✅ Schema generation completed successfully!")
 
     except Exception as e:
-        logger.error(f"Schema generation failed: {e}")
+        logger.error("Schema generation failed: %s", e)
         return 1
 
     return 0
