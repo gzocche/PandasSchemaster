@@ -1,0 +1,6 @@
+id,name,age,salary,is_active,join_date
+1,John Smith,25,50000.50,true,2023-01-15
+2,Jane Doe,30,65000.75,false,2022-06-20
+3,Bob Johnson,35,70000.00,true,2021-03-10
+4,Alice Brown,28,58000.25,true,2023-05-05
+5,Charlie Wilson,42,85000.00,false,2020-11-30

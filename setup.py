@@ -30,9 +30,13 @@ setup(
         "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3.13",
         "Topic :: Scientific/Engineering",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-    ],
+        "Topic :: Software Development :: Libraries :: Python Modules",    ],
     python_requires=">=3.8",
     install_requires=requirements,
     keywords="pandas, dataframe, schema, validation, type-safety",
+    entry_points={
+        'console_scripts': [
+            'pandasschemaster-generate=pandasschemaster.schema_generator:main',
+        ],
+    },
 )
