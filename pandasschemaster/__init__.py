@@ -8,7 +8,7 @@ using SchemaColumn objects for maximum type safety.
 Includes Entity Framework-like schema generation from data files.
 """
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 from .schema_column import SchemaColumn
 from .base_schema import BaseSchema

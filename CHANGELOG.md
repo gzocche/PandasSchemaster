@@ -20,6 +20,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Memory leaks with large file processing
 - Type casting edge cases
 
+## [1.0.1] - 2025-06-30
+
+### Fixed
+- Package publishing issues
+- Version synchronization across files
+
 ## [1.0.0] - 2024-01-01
 
 ### Added
