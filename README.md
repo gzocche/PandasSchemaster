@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
 [![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)]()
-[![PyPI](https://img.shields.io/badge/PyPI-1.0.0-blue.svg)]()
+[![PyPI](https://img.shields.io/badge/PyPI-1.0.1-blue.svg)]()
 
 > Transform your pandas DataFrames from `df['column']` to `df[Schema.COLUMN]` for bulletproof, IDE-friendly data operations!
 
