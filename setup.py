@@ -37,6 +37,7 @@ setup(
     entry_points={
         'console_scripts': [
             'pandasschemaster-generate=pandasschemaster.schema_generator:main',
+            'pandaschemstart=scripts.pandaschemstart:main',
         ],
     },
 )

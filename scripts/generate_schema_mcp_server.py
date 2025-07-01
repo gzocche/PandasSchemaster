@@ -15,7 +15,7 @@ mcp = FastMCP(
     name="pandasschemaster.generate_schema",
     description="Generate a PandasSchemaster schema class from a DataFrame file.",
 )
-def generate_schema(
+async def generate_schema(
     absolute_path: str,
     class_name: str = "TestSchema",
     output_path: Optional[str] = None,
@@ -44,4 +44,6 @@ def generate_schema(
 
 # Entry point to run the server
 if __name__ == "__main__":
-    mcp.run(transport="sse")
+     mcp.run(
+        transport="sse"  # Use Server-Sent Events for real-time updates
+    )
