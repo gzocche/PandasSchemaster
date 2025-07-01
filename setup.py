@@ -8,7 +8,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="pandasschemaster",  # Changed to match actual package name
-    version="1.0.1",
+    version="1.0.2",
     author="gzocche",  # Add your name
     author_email="gzocche@outlook.com",  # Add your email
     description="Type-safe DataFrame library with schema validation for pandas",
