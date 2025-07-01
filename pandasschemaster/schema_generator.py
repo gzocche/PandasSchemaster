@@ -30,7 +30,7 @@ class SchemaGenerator:
     # Type mapping from pandas/numpy types to numpy dtypes
     TYPE_MAPPING = {
         "object": np.object_,
-        "string": np.object_,
+        "string": np.str_,
         "int64": np.int64,
         "Int64": np.int64,
         "int32": np.int32,

@@ -6,6 +6,8 @@ Complete guide for the PandasSchemaster command-line schema generator.
 
 The PandasSchemaster CLI automatically generates schema classes from your data files, similar to Entity Framework's database-first approach. It analyzes your data and creates type-safe schema definitions that you can immediately use in your code.
 
+PandasSchemaster also provides an **MCP (Model Context Protocol) server** that enables AI assistants to generate schemas through tool calls, making it easy to integrate schema generation into AI-powered workflows.
+
 ## 🎯 Quick Start
 
 ### Basic Usage
@@ -19,7 +21,31 @@ python scripts/generate_schema.py data.csv -o my_schema.py
 
 # Custom class name
 python scripts/generate_schema.py data.csv -o schema.py -c CustomerSchema
+
+# Using the unified pandaschemstart script
+python scripts/pandaschemstart.py generate data.csv -o schema.py -c CustomerSchema
 ```
+
+### MCP Server Mode
+
+The MCP server enables AI assistants to generate schemas through tool calls:
+
+```bash
+# Start MCP server (SSE transport by default)
+python scripts/generate_schema_mcp_server.py
+
+# Using the unified pandaschemstart script
+python scripts/pandaschemstart.py mcp-server
+
+# Start with custom host/port (if supported by transport)
+python scripts/pandaschemstart.py mcp-server --transport=sse
+```
+
+**MCP Server Features:**
+- **Tool Integration**: AI assistants can call `pandasschemaster.generate_schema` tool
+- **Real-time Generation**: Generate schemas on-demand through tool calls
+- **Same Functionality**: All CLI features available through MCP interface
+- **SSE Transport**: Uses Server-Sent Events for communication
 
 ### Platform-Specific Scripts
 
@@ -39,6 +65,40 @@ powershell -ExecutionPolicy Bypass -File scripts\generate_schema.ps1 data.csv
 
 # Make executable first if needed
 chmod +x scripts/generate_schema.sh
+```
+
+### Unified PandasSchemstart Script
+
+The `pandaschemstart.py` script provides a unified interface for both CLI generation and MCP server functionality:
+
+#### Schema Generation Mode
+```bash
+# Generate schema (same as generate_schema.py)
+python scripts/pandaschemstart.py generate data.csv -o schema.py -c MySchema
+
+# All standard options are supported
+python scripts/pandaschemstart.py generate data.csv -s 1000 --verbose
+```
+
+#### MCP Server Mode
+```bash
+# Start MCP server
+python scripts/pandaschemstart.py mcp-server
+
+# With specific transport (default: sse)
+python scripts/pandaschemstart.py mcp-server --transport=sse
+```
+
+#### Help and Information
+```bash
+# Show main help
+python scripts/pandaschemstart.py --help
+
+# Show generate command help
+python scripts/pandaschemstart.py generate --help
+
+# Show MCP server help
+python scripts/pandaschemstart.py mcp-server --help
 ```
 
 ## 📖 Command Reference
@@ -173,16 +233,7 @@ python scripts/generate_schema.py api_response.json -c UserSchema -o user_schema
 
 ## 🔧 Advanced Usage
 
-### Custom Configuration
 
-You can modify the script behavior by editing the configuration at the top of `generate_schema.py`:
-
-```python
-# Configuration options
-DEFAULT_SAMPLE_SIZE = 10000
-INFER_NULLABLE = True
-VERBOSE_OUTPUT = False
-```
 
 ### Batch Processing
 
@@ -336,6 +387,51 @@ PRICE = SchemaColumn("price", np.float64, nullable=False)
 
 ## 🔮 Advanced Features
 
+### MCP Server Integration
+
+The MCP (Model Context Protocol) server allows AI assistants to generate schemas through tool calls:
+
+#### Available Tools
+
+**`pandasschemaster.generate_schema`**
+- **Purpose**: Generate schema classes from DataFrame files
+- **Parameters**:
+  - `absolute_path` (required): Full path to the data file
+  - `class_name` (optional): Name for the generated class (default: "TestSchema")
+  - `output_path` (optional): Where to save the schema file
+  - `sample_size` (optional): Number of rows to analyze (default: 42)
+
+#### Usage Examples with AI Assistants
+
+When an AI assistant calls the MCP server:
+
+```python
+# Tool call example (AI assistant perspective)
+{
+    "tool": "pandasschemaster.generate_schema",
+    "parameters": {
+        "absolute_path": "/path/to/data.csv",
+        "class_name": "CustomerSchema",
+        "output_path": "/path/to/schema.py",
+        "sample_size": 1000
+    }
+}
+```
+
+#### Server Management
+
+```bash
+# Start server in background (Windows)
+start /b python scripts/pandaschemstart.py mcp-server
+
+# Start server in background (Unix/Linux/macOS)
+python scripts/pandaschemstart.py mcp-server &
+
+# Check if server is running
+ps aux | grep pandaschemstart  # Unix/Linux/macOS
+tasklist | findstr python     # Windows
+```
+
 ### Custom Type Mapping
 
 You can extend the type mapping by modifying `SchemaGenerator.TYPE_MAPPING`:
@@ -449,7 +545,31 @@ After generating your schema:
 3. **Integrate into your project** and enjoy type-safe DataFrame operations
 4. **Set up automated schema generation** in your CI/CD pipeline
 
+### Integration Options
+
+**Standalone CLI Usage:**
+```bash
+# Use individual scripts for specific tasks
+python scripts/generate_schema.py data.csv -o schema.py
+python scripts/generate_schema_mcp_server.py
+```
+
+**Unified Interface (Recommended):**
+```bash
+# Use the unified script for all functionality
+python scripts/pandaschemstart.py generate data.csv -o schema.py
+python scripts/pandaschemstart.py mcp-server
+```
+
+**AI Assistant Integration:**
+```bash
+# Start MCP server for AI-powered schema generation
+python scripts/pandaschemstart.py mcp-server
+# Then use any MCP-compatible AI assistant to call:
+# - pandasschemaster.generate_schema tool
+```
+
 For more examples and advanced usage, see:
 - [API Reference](API_REFERENCE.md)
 - [Examples Directory](../examples/)
-- [Integration Guide](INTEGRATION.md)
+- [Scripts Documentation](../scripts/README.md)

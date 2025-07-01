@@ -97,7 +97,6 @@ Please pay special attention to:
 ---
 
 ## 🚀 Post-Merge Checklist
-- [ ] Update CHANGELOG.md
 - [ ] Tag release (if applicable)
 - [ ] Update documentation site
 - [ ] Announce new features (if applicable)

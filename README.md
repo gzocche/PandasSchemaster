@@ -314,8 +314,6 @@ print(df.schema)                             # Access to schema class
 | [📖 API Reference](docs/API_REFERENCE.md) | Complete API documentation |
 | [🔧 CLI Usage Guide](docs/CLI_USAGE.md) | Command-line tool documentation |
 | [🎯 Examples & Tutorials](docs/EXAMPLES.md) | Real-world examples and patterns |
-| [🤝 Contributing](CONTRIBUTING.md) | How to contribute |
-| [📋 Changelog](CHANGELOG.md) | Version history |
 
 ## 📞 Support & Community
 
@@ -358,15 +356,6 @@ python -m pytest tests/
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on:
-
-- Setting up the development environment
-- Code style guidelines
-- Testing requirements
-- Pull request process
 
 ## 🙏 Acknowledgments
 
